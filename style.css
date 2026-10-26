@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #0f172a;
+  color: #f1f5f9;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.game {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.mode {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #1e293b;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.mode-btn.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.score {
+  flex: 1;
+  background: #1e293b;
+  border-radius: 10px;
+  padding: 10px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.score strong {
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.status {
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  min-height: 1.4em;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  font-size: 2.6rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  background: #1e293b;
+  color: #f1f5f9;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.cell:hover:not(:disabled) {
+  background: #334155;
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.x {
+  color: #38bdf8;
+}
+
+.cell.o {
+  color: #f472b6;
+}
+
+.cell.win {
+  background: #166534;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 11px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.actions button:last-child {
+  background: #334155;
+}
