@@ -1,11 +1,13 @@
-/* Day 4 draft — Tic Tac Toe — "Ocean sapphire glass" theme.
-   Prepared 2026-11-21 for the 2026-11-22 14:30 PKT streak run.
-   Same selectors as ~/workspace/tic-tac-toe/style.css; only colours /
-   gradients / glow / animation change. No HTML or JS touched.
-   Distinct from Day 1 (sunset gradient glass), Day 2 (emerald aurora)
-   and Day 3 (mint frost — note: violet was pre-announced for Day 3
-   but the run shipped mint frost instead; violet is reserved for the
-   next calculator round if the user wants it). */
+/* Day 7 draft — Tic Tac Toe — "Amethyst violet glass" theme.
+   Prepared 2026-11-24 for the 2026-11-25 14:30 PKT streak run.
+   Same selectors as ~/workspace/tic-tac-toe/style.css (Day 4 ocean
+   sapphire, currently live); only colours / gradients / glow /
+   animation change. No HTML or JS touched.
+   Distinct from Tic Tac Toe Day 1 (sunset gradient glass) and Day 4
+   (ocean sapphire glass), and from the other shipped themes:
+   emerald aurora, mint frost, ruby crimson, midnight gold.
+   Violet was pre-announced for Day 3 but mint frost shipped instead,
+   so violet has not shipped on any project yet. */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,10 +16,10 @@
 
 body {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #020617, #0c4a6e, #0369a1, #082f49);
+  background: linear-gradient(135deg, #1e1b4b, #4c1d95, #7e22ce, #2e1065);
   background-size: 300% 300%;
-  animation: ocean-drift 16s ease infinite;
-  color: #f0f9ff;
+  animation: violet-drift 16s ease infinite;
+  color: #f5f3ff;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -25,7 +27,7 @@ body {
   padding: 20px;
 }
 
-@keyframes ocean-drift {
+@keyframes violet-drift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
@@ -41,7 +43,7 @@ h1 {
   font-size: 2.2rem;
   margin-bottom: 16px;
   letter-spacing: 1px;
-  background: linear-gradient(135deg, #67e8f9, #38bdf8, #2dd4bf);
+  background: linear-gradient(135deg, #c4b5fd, #a78bfa, #e879f9);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -56,10 +58,10 @@ h1 {
 .mode-btn {
   flex: 1;
   padding: 10px;
-  border: 1px solid rgba(125, 211, 252, 0.25);
+  border: 1px solid rgba(196, 181, 253, 0.25);
   border-radius: 12px;
-  background: rgba(8, 47, 73, 0.55);
-  color: #bae6fd;
+  background: rgba(46, 16, 101, 0.55);
+  color: #ddd6fe;
   font-size: 0.95rem;
   cursor: pointer;
   backdrop-filter: blur(8px);
@@ -71,10 +73,10 @@ h1 {
 }
 
 .mode-btn.active {
-  background: linear-gradient(135deg, #0284c7, #06b6d4);
+  background: linear-gradient(135deg, #7c3aed, #c026d3);
   border-color: transparent;
   color: #fff;
-  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.45);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.45);
 }
 
 .scoreboard {
@@ -86,15 +88,15 @@ h1 {
 
 .score {
   flex: 1;
-  background: rgba(8, 47, 73, 0.55);
-  border: 1px solid rgba(125, 211, 252, 0.22);
+  background: rgba(46, 16, 101, 0.55);
+  border: 1px solid rgba(196, 181, 253, 0.22);
   border-radius: 12px;
   padding: 10px 4px;
   display: flex;
   flex-direction: column;
   gap: 2px;
   font-size: 0.85rem;
-  color: #7dd3fc;
+  color: #c4b5fd;
   backdrop-filter: blur(8px);
 }
 
@@ -120,19 +122,19 @@ h1 {
   aspect-ratio: 1;
   font-size: 2.6rem;
   font-weight: 700;
-  border: 1px solid rgba(125, 211, 252, 0.28);
+  border: 1px solid rgba(196, 181, 253, 0.28);
   border-radius: 14px;
-  background: rgba(8, 47, 73, 0.55);
-  color: #f0f9ff;
+  background: rgba(46, 16, 101, 0.55);
+  color: #f5f3ff;
   cursor: pointer;
   backdrop-filter: blur(8px);
   transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
 }
 
 .cell:hover:not(:disabled) {
-  background: rgba(12, 74, 110, 0.7);
+  background: rgba(76, 29, 149, 0.7);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 0 18px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 0 18px rgba(168, 85, 247, 0.3);
 }
 
 .cell:disabled {
@@ -146,23 +148,23 @@ h1 {
 }
 
 .cell.x {
-  color: #22d3ee;
+  color: #a78bfa;
   animation: pop 0.25s ease;
 }
 
 .cell.o {
-  color: #fbbf24;
+  color: #f472b6;
   animation: pop 0.25s ease;
 }
 
 @keyframes winGlow {
-  0%, 100% { box-shadow: 0 0 12px rgba(34, 211, 238, 0.6); }
-  50% { box-shadow: 0 0 26px rgba(34, 211, 238, 0.95); }
+  0%, 100% { box-shadow: 0 0 12px rgba(168, 85, 247, 0.6); }
+  50% { box-shadow: 0 0 26px rgba(168, 85, 247, 0.95); }
 }
 
 .cell.win {
-  background: rgba(8, 74, 110, 0.8);
-  border-color: rgba(103, 232, 249, 0.6);
+  background: rgba(76, 29, 149, 0.8);
+  border-color: rgba(196, 181, 253, 0.6);
   animation: winGlow 1s ease-in-out infinite;
 }
 
@@ -176,12 +178,12 @@ h1 {
   padding: 11px;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(135deg, #0284c7, #06b6d4);
+  background: linear-gradient(135deg, #7c3aed, #c026d3);
   color: #fff;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(6, 182, 212, 0.4);
+  box-shadow: 0 6px 18px rgba(192, 38, 211, 0.4);
   transition: filter 0.15s ease, transform 0.1s ease;
 }
 
@@ -191,7 +193,7 @@ h1 {
 }
 
 .actions button:last-child {
-  background: rgba(8, 47, 73, 0.55);
-  border: 1px solid rgba(125, 211, 252, 0.28);
+  background: rgba(46, 16, 101, 0.55);
+  border: 1px solid rgba(196, 181, 253, 0.28);
   box-shadow: none;
 }
